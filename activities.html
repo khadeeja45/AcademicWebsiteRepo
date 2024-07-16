@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/headerStyle.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://unpkg.com/nanogallery2@2.3.0/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="https://unpkg.com/nanogallery2@2.3.0/dist/jquery.nanogallery2.min.js"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/nanogallery2@2.3.0/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://unpkg.com/nanogallery2@2.3.0/dist/jquery.nanogallery2.min.js"></script>
+    <title>DIL</title>
+</head>
+
+<body>
+    <div w3-include-html="header.html">
+
+    </div>
+
+    <div id="my_nanogallery2"></div>
+    <div class="activitesDescriptionMainDiv">
+        <div class="activitesDescriptionInsideDiv">
+          <h1 class="activitesDescriptionInsideHeader">We seriously love where we work</h1>
+          <p class="activitesDescriptionInsideBody">
+            We will be updating all the past and present activity soon.
+            <br>
+            <br>
+            ibus condimentum phasellus fringilla. Tellus iaculis tempor morbi
+            cursus enim. Mauris sed enim varius non eu hac mattis lorem blandit.
+            Quis a phasellus auctor volutpat mus magna. Ut eu interdum tempus
+            habitant eget at sit.
+            <br>
+            <br>
+            suscipit dui facilisis. Sed id lacus a elementum fringilla. Ullamcorper
+            eget amet nisl nunc imperdiet varius mus ac. Ut arcu duis eget
+            sollicitudin scelerisque non duis bibendum ultrices. Turpis aliquet
+            pretium ipsum suscipit praesent gravida. Odio volutpat sed augue
+            cursus. Vitae scelerisque commodo tincidunt lacinia.
+          </p>
+        </div>
+      </div>
+    
+      <div class="imagesDiv1">
+        <div class="row imagesDiv1Inside">
+          <div class="col-6 imagesDiv1InsideCol">
+            <img src="images/image2.png" alt="" class="image2">
+          </div>
+          <div class="col-6 imagesDiv1InsideCol">
+            <img src="images/image1.png" alt="" class="image1">
+          </div>
+        </div>
+      </div>
+    <div w3-include-html="footer.html"></div>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>
+
+<script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /* Make an HTTP request using the attribute value as the file name: */
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                        if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                        /* Remove the attribute, and call this function once more: */
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /* Exit the function: */
+                return;
+            }
+        }
+    }
+</script>
+
+<script>
+    includeHTML();
+</script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery("#my_nanogallery2").nanogallery2({
+            items: [
+                { src: 'ALU_BAEKDuin.png', srct: 'ALU_BAEKDuin.png', title: 'Berlin 1' },
+                { src: 'group.png', srct: 'group.png', title: 'Berlin 2' },
+                { src: 'album1/david.jpg', srct: 'album1/david.jpg', title: 'Berlin 3' },
+                { src: 'ALU_BAEKDuin.png', srct: 'PM_Yoon.jpg', title: 'Berlin 3' },
+                { src: 'group_picture.jpeg', srct: 'group_picture.jpeg', title: 'Berlin 4' },
+                { src: 'event3_booth.jpeg', srct: 'event3_booth.jpeg', title: 'Berlin 4' },
+                { src: 'graducation.jpeg', srct: 'graducation.jpeg', title: 'Berlin 4' },
+                { src: 'event2_exibition_resized.jpeg', srct: 'event2_exibition_resized.jpeg', title: 'Berlin 4' },
+                { src: 'lab-workshop.jpg', srct: 'lab-workshop.jpg', title: 'Berlin 4' },
+                { src: 'album1/david.jpg', srct: 'album1/david.jpg', title: 'Berlin 3' },
+                
+            ],
+            thumbnailWidth: 'auto',
+            thumbnailHeight: 250,
+            itemsBaseURL: 'images/',
+
+            locationHash: false
+        });
+    });
+</script>

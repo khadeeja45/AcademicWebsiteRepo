@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
+    <title>Your Photo Gallery</title>
+</head>
+<body>
+
+    <!-- Album 1 Gallery -->
+    <div id="album1" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <!-- Add more items for Album 1 -->
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <!-- ... Other UI elements ... -->
+                </div>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Album 2 Gallery -->
+    <div id="album2" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <!-- Add more items for Album 2 -->
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <!-- ... Other UI elements ... -->
+                </div>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your thumbnail images -->
+    <div class="gallery-thumbnails">
+        <!-- Album 1 -->
+        <a href="images/album1/david.jpg" data-size="800x600" data-med="images/album1/david.jpg" data-med-size="800x600">
+            <img src="images/album1/david.jpg" alt="Album 1 Photo 1">
+        </a>
+        <a href="images/album1/group.png" data-size="800x600" data-med="images/album1/group.png" data-med-size="800x600">
+            <img src="images/album1/group.png" alt="Album 1 Photo 2">
+        </a>
+
+        <!-- Album 2 -->
+        <a href="images/album2/david.jpg" data-size="800x600" data-med="images/album2/david.jpg" data-med-size="800x600">
+            <img src="images/album2/david.jpg" alt="Album 2 Photo 1">
+        </a>
+        <a href="images/album2/group.png" data-size="800x600" data-med="images/album2/group.png" data-med-size="800x600">
+            <img src="images/album2/group.png" alt="Album 2 Photo 2">
+        </a>
+    </div>
+
+    <!-- PhotoSwipe script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+    <script>
+        // Initialize PhotoSwipe for Album 1
+        var album1Gallery = new PhotoSwipe(document.getElementById('album1'), PhotoSwipeUI_Default, [
+            { src: 'images/album1/david.jpg', w: 800, h: 600 },
+            { src: 'images/album1/group.png', w: 800, h: 600 },
+            // Add more items for Album 1
+        ], { index: 0, loop: false });
+
+        // Initialize PhotoSwipe for Album 2
+        var album2Gallery = new PhotoSwipe(document.getElementById('album2'), PhotoSwipeUI_Default, [
+            { src: 'images/album2/david.jpg', w: 800, h: 600 },
+            { src: 'images/album2/group.png', w: 800, h: 600 },
+            // Add more items for Album 2
+        ], { index: 0, loop: false });
+
+        // Handle clicks on thumbnail images to open the respective gallery
+        document.querySelectorAll('.gallery-thumbnails a').forEach(function(el, index) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault

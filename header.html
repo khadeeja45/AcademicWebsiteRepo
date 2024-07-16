@@ -1,0 +1,29 @@
+<div class="row  col-container">
+
+  <div class="col-2 navLeftSide col">
+    <div class="logo"><br>DISTRIBUTED INTELLIGENCE LAB
+    </div>
+  </div>
+  <div class="col-8 navCenter col">
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="members.html">MEMBERS</a></li>
+      <li><a href="research.html">RESEARCH</a></li>
+      <li><a href="activities.html">ACTIVITIES</a></li>
+    </ul>
+
+  </div>
+  <div class="col-2 navRightSide col">
+    <a href="#contact" class="navRightSideAnchor">GET IN TOUCH</a>
+  </div>
+</div>
+
+
+<script>
+  $(".navRightSideAnchor").click(function () {
+    $('html,body').animate({
+      scrollTop: $("#contact").offset().top
+    },
+      'slow');
+  });
+</script>

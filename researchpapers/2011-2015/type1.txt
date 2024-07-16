@@ -1,0 +1,32 @@
+{"papers":
+    [
+{
+  "title": "DCS: Distributed asynchronous clock synchronization in delay tolerant networks",
+  "author": ["Choi, Bong Jun", "Liang, Hao", "Shen, Xuemin", "Zhuang, Weihua"],
+  "journal": "IEEE Transactions on Parallel and Distributed Systems",
+  "volume": 23,
+  "number": 3,
+  "pages": "491--504",
+  "year": 2011,
+  "publisher": "IEEE"
+},
+        {
+"title": "Adaptive asynchronous sleep scheduling protocols for delay tolerant networks",
+  "author": ["Choi, Bong Jun", "Shen, Xuemin"],
+  "journal": "IEEE Transactions on Mobile Computing",
+  "volume": 10,
+  "number": 9,
+  "pages": "1283--1296",
+  "year": 2010,
+  "publisher": "IEEE"
+        },
+        {
+ "title": "DSA: Distributed Semi-Asynchronous Sleep Scheduling Protocol for Mobile Wireless Networks",
+  "author": ["Choi, Bong Jun", "Shen, Xuemin"],
+  "booktitle": "2011 IEEE International Conference on Communications (ICC)",
+  "pages": "1--5",
+  "year": 2011,
+  "organization": "IEEE"
+        }
+    ]
+}

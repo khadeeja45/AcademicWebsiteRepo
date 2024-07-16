@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<style>
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/headerStyle.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <title>DIL</title>
+</head>
+
+<body id="outerBody">
+  <div w3-include-html="header.html"></div>
+
+  <!-- <div class="hero" style="background-image: url('images/header.jpg');"></div> -->
+  <div id="publicationsMainDiv">
+    <h1 id="publicationsHeader"><b>Yearly Publication by Area:</b></h1>
+    <div class="row">
+      <div class="col-3">
+        <button type="button" class="btn btn-success yearData" daterange="2000-2010">2000-2010</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-success yearData" daterange="2011-2015">2011-2015</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-success yearData" daterange="2016-2020">2016-2020</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-success yearData" daterange="2021-2025">2021-2025</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type1">Internet of Things (IoT)</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type2">Distributed Intelligent
+          Energy Grid</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type3">Security and Privacy</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type4">Machine Learning (ML)/ Artificial
+          Intelligence (AI)</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type5">Business Intelligence (BI)</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-success researchtype" research="type6">Federated Learning (FL)</button>
+      </div>
+    </div>
+    <div class="articles"></div>
+
+  </div>
+
+  <div w3-include-html="footer.html"></div>
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+<script>
+  function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      /*search for elements with a certain atrribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /* Make an HTTP request using the attribute value as the file name: */
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /* Exit the function: */
+        return;
+      }
+    }
+  }
+
+
+  $(document).ready(function () {
+
+    var dateFolder = "2000-2010";
+    var researchType = "type1";
+
+    getAndDisplayArcticles(dateFolder, researchType);
+
+    $(".yearData").click(function (e) {
+      $(".yearData").removeClass('active');
+      $(this).addClass('active');
+      dateFolder = $(this).attr("daterange");
+      getAndDisplayArcticles(dateFolder, researchType);
+    });
+
+
+
+    $(".researchtype").click(function (e) {
+      $(".researchtype").removeClass('active');
+      $(this).addClass('active');
+      researchType = $(this).attr("research");
+      getAndDisplayArcticles(dateFolder, researchType);
+    });
+
+  });
+
+  function getAndDisplayArcticles(dateFolder = "2000-2010", researchType = "type1") {
+    jQuery.get('researchpapers/' + dateFolder + '/' + researchType + '.txt', function (data) {
+      var papers = JSON.parse(data)["papers"];
+      var html = `<table>
+            <tr>
+              <th>Year</th>
+              <th>Type</th>
+              <th>Publication</th>
+            </tr>`;
+      for (var i = 0; i < papers.length; i++) {
+        let journal =" ";
+        let typeResearch = "";
+        if(papers[i]['journal']!= undefined){
+          journal+=papers[i]['journal'];
+          typeResearch = "Journal";
+        }
+        else{
+          journal+=papers[i]['booktitle'];
+          typeResearch = "Conference";
+        }
+        html += `<tr>
+                <td>${papers[i]['year']}</td>
+                <td>${typeResearch}</td>
+                <td>${papers[i]['author'].toString()}(${papers[i]['year']})${papers[i]['title']}${journal}</td>
+                </tr>`;
+        }
+      html+=`<table>`;   
+      $(".articles").html("");
+      $(".articles").append(html);
+    });
+  }
+</script>
+
+<script>
+  includeHTML();
+</script>
